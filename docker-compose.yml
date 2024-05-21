@@ -1,0 +1,14 @@
+version: "3.3"
+services:
+  sls-cli:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sls-cli # イメージ名を指定（build と image が同時に使われた場合、image はイメージ名に使わる）
+    tty: true
+    # environment:
+    #   - NODE_ENV=development
+    volumes:
+      - $HOME/.aws:/root/.aws
+      - /etc/group:/etc/group:ro
+      - /etc/passwd:/etc/passwd:ro
